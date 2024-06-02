@@ -1,0 +1,23 @@
+name: Clippy
+
+on:
+  pull_request:
+    branches: [ "main" ]
+
+jobs: 
+  clippy: 
+    runs_on: ubuntu-latest
+
+    steps: 
+     - name: Checkout code
+       uses: actions/checkout@v2
+
+     - name: Set up rust
+       uses: actions-rs/toolchain@v1
+       with:
+         toolchain: stable
+         override: true
+
+     - name: Clippy Action
+       uses: auguwu/clippy-action@1.3.0
+
